@@ -11,4 +11,7 @@ app.use(bodyParser.urlencoded({
 const productCategoryRoute = require('./routes/productCategoryRouter');
 app.use('/product_categories', productCategoryRoute);
 
+const productRoute = require('./routes/productRouter');
+app.use('/products', productRoute);
+
 module.exports = app; 
