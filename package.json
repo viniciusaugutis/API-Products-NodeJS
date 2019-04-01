@@ -4,7 +4,8 @@
   "description": "REST API developed on node JS and MYSQL database for a product control and product category",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./bin/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "mysql": "^2.16.0"
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.10"
   }
 }
