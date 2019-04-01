@@ -1,0 +1,210 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Products API",
+        "description": "A API for products and product category for a supermarket"
+    },
+    "schemes": [
+        "https"
+    ],
+    "host": "products.api",
+    "basePath": "",
+    "tags": [
+        {
+            "name": "product",
+            "description": "Everything about products"
+        },
+        {
+            "name": "productCategory",
+            "description": "Everything about products category"
+        }
+    ],
+    "paths": {
+        "/products": {
+            "get": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Gets all products",
+                "description": "Returns a list containing all products.",
+                "responses": {
+                    "200": {
+                        "description": "A list of products",
+                        "schema": {
+                            "$ref": "#/definitions/Product"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Create one product",
+                "description": "Returns a result of product create.",
+                "consumes": [
+                    "application/json"
+                ]
+            }
+        },
+        "/products/{id}": {
+            "put": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Update one product",
+                "description": "Returns a result of product update.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of product to update",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A product to update",
+                        "schema": {
+                            "$ref": "#/definitions/Product"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "product"
+                ],
+                "summary": "Delete one product",
+                "description": "Returns a result of product remove.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of product to remove",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Product has been removed successfully."
+                    }
+                }
+            }
+        },
+        "/product_categories": {
+            "get": {
+                "tags": [
+                    "productCategory"
+                ],
+                "summary": "Gets all product categories",
+                "description": "Returns a list containing all product categories.",
+                "responses": {
+                    "200": {
+                        "description": "A list of product categories",
+                        "schema": {
+                            "$ref": "#/definitions/ProductCategory"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "productCategory"
+                ],
+                "summary": "Create one product category",
+                "description": "Returns a result of product category create.",
+                "consumes": [
+                    "application/json"
+                ]
+            }
+        },
+        "/product_categories/{id}": {
+            "put": {
+                "tags": [
+                    "productCategory"
+                ],
+                "summary": "Update one product",
+                "description": "Returns a result of product category update.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of product category to update",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A product category to update",
+                        "schema": {
+                            "$ref": "#/definitions/ProductCategory"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "productCategory"
+                ],
+                "summary": "Delete one product category",
+                "description": "Returns a result of product category remove.",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of product category to remove",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Product category has been removed successfully."
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Product": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "price": {
+                    "type": "number"
+                },
+                "id_product_category": {
+                    "$ref": "#/definitions/ProductCategory"
+                }
+            }
+        },
+        "ProductCategory": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
