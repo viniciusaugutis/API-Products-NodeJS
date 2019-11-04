@@ -37,4 +37,4 @@ build:
 
 deploy:
   steps:
-    - npm start
+    - npm run start
